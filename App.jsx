@@ -5,10 +5,9 @@ import './App.css'
 import axios from "axios";
 import recycle from './assets/recycle.png';
 import signs from './assets/signs.png';
+import SingleTable from './SingleTable';
 
-// In order using ngrok, please recheck to add headers to skip
-const endPoint = 'https://50d3-103-136-25-38.ngrok-free.app/display'
-
+const endPoint = "https://50d3-103-136-25-38.ngrok-free.app/req"
 
 const Table = ({ data, color }) => {
   return (
@@ -41,20 +40,19 @@ const Table = ({ data, color }) => {
 const Time = () => {
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-vars
     const timer = setInterval(() => setTime(new Date()));
   }, []);
 
   const [time, setTime] = useState(new Date());
   const formattedTime = time.toLocaleTimeString("en-US");
   return(
-    <>{formattedTime}</>
+    <a style={{color: 'white'}}>{formattedTime}</a>
   )
 }
 
 const Banner = ({title, flex, color}) => {
   return(
-    <h2 className='banner' style={{'flex':flex, 'backgroundColor':color}}>{title}</h2>
+    <div className='banner' style={{'flex':flex, 'backgroundColor':color, fontSize:'3vh', fontWeight:'bold'}}>{title}</div>
   )
 }
 
@@ -62,7 +60,9 @@ const ShowDate = () => {
   const today = new Date();
   return(
     <>
-    {today.toLocaleDateString('en-GB')}
+      <a style={{'color': 'white'}}>
+        {today.toLocaleDateString('en-GB')}
+        </a>
     </>
   )
 }
@@ -161,32 +161,41 @@ const Tables = ({data}) => {
     </>
   )
 }
-
 function App() {
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   getData();
+  // },[])
+  
+  // const getData = async () => {
+  //   const response = await axios.get('https://524c-103-136-25-38.ngrok-free.app/req',  {headers: {
+  //     "ngrok-skip-browser-warning":"any"
+  //   },}     
+  //   );
+  //   setData(response.data)
+  // }
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
-
   useEffect(() => {
     getData();
   },[])
   
   const getData = async () => {
-    const response = await axios.get(endPoint,  {headers: {
+    const response = await axios.get(endPoint, {headers: {
       "ngrok-skip-browser-warning":"any"
-    },}     
-    );
-    setData(response.data);
+    },});
+    setData(response.data)
     setLoading(false);
   }
-
-
   return (
     <>
       <Header />
-      {isLoading ? (<p>Loading...</p>) : <Tables data={data} />}
+      {/* <Tables data={data} /> */}
       {/* <Signs /> */}
-      <Footer data={data[4]} />
+      {/* <Footer data={data[4]} /> */}
+      {isLoading ? (<p>Loading...</p>) : <SingleTable data={data}/>}
+      {isLoading ? (<p>Loading...</p>) : <Footer data={data[2][0]} />}
     </>
   )
 }
