@@ -54,7 +54,7 @@ const Time = () => {
 
 const Banner = ({title, flex, color}) => {
   return(
-    <h2 className='banner' style={{'flex':flex, 'backgroundColor':color}}>{title}</h2>
+    <a className='banner' style={{'flex':flex, 'backgroundColor':color, fontSize:'1.5em', fontWeight:'bold'}}>{title}</a>
   )
 }
 
@@ -141,7 +141,7 @@ const Tables = ({data}) => {
       <div className='container'>
         <div className='column row full-width' style={{'flex': '60%', }}>
           <Banner title={'STOK LIMBAH B3'} style={{'display' : 'flex'}} color={'green'}/>
-            <div style={{'display':'flex', 'width':'100%'}}>
+            <div className='underBanner' style={{'display':'flex', 'width':'100%'}}>
               <div style={{'width':'50%'}}>
               {data.length > 0 ? <Table data={data[2]} color={'blue'} /> : <p>Loading...</p>}
               </div>
@@ -155,7 +155,7 @@ const Tables = ({data}) => {
         </div>
         <div className='column' style={{'paddingRight' : '30px'}}>
           <Banner title={'SIMBOL LIMBAH B3'} color={'royalblue'} style={{'paddingRight' : '5vh'}} />
-          <Signs />
+          <Signs className='underBanner' />
         </div>
       </div>
     </>
