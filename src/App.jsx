@@ -71,7 +71,7 @@ const Footer = ({data}) => {
   return (
     <div className="footer-container">
       <div className="id-column footer-column"><ShowDate /></div>
-      <div className="marquee-column footer-column" style={{'color' : 'yellow', 'fontSize': '30PX'}}><Marquee data={data} />awww</div>
+      <div className="marquee-column footer-column" style={{'color' : 'yellow', 'fontSize': '30PX'}}><Marquee data={data} /></div>
       <div className="time-column footer-column"><Time /></div>
     </div>
   );
