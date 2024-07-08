@@ -97,6 +97,8 @@ th {
   align-items: center;
   min-height: 8vh;
   max-height: 10vh;
+  position: fixed;
+  bottom: 0;
   background-color: #1a1a1a;
   box-sizing: border-box;
 }

@@ -7,7 +7,7 @@ import recycle from './assets/recycle.png';
 import signs from './assets/signs.png';
 import SingleTable from './SingleTable';
 
-const endPoint = "https://50d3-103-136-25-38.ngrok-free.app/req"
+const endPoint = "https://50d3-103-136-25-38.ngrok-free.app/req" 
 
 const Table = ({ data, color }) => {
   return (
