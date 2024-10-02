@@ -7,7 +7,7 @@ import recycle from './assets/recycle.png';
 import signs from './assets/signs.png';
 
 // In order using ngrok, please recheck to add headers to skip
-const endPoint = ' https://de39-103-136-25-38.ngrok-free.app/display'
+const endPoint = 'https://4973-103-136-25-38.ngrok-free.app/display'
 
 
 const Table = ({ data, color }) => {
