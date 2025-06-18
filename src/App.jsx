@@ -10,14 +10,15 @@ import signs from './assets/signs.png';
 const endPoint = 'https://4973-103-136-25-38.ngrok-free.app/display'
 
 
+
 const Table = ({ data, color }) => {
   return (
     <table border="3" width={'100%'}>
       <thead>
         <tr>
           {data[0].map((header, index) => (
-            <th key={index} colSpan={index === 0 ? data.length +1 : 1} className='th-1' style={{'backgroundColor': color}} >{header}</th>
-          ))}
+            <th key={index} colSpan={data[0][0] === "NAMA LB3" ||  data[0][0] === "KODE"  ? data.length -10 : 10} className='th-1' style={{'backgroundColor': color}} >{header}</th>
+          ))} 
         </tr>
         <tr>
           {data[1].map((header, index) => (
